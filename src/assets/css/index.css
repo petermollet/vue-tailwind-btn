@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply bg-gray-200;
+    }
+
+    body {
+        @apply antialiased;
+    }
+
+    #app {
+        @apply min-h-screen flex flex-col;
+    }
+}
+
+@layer components {
+    .page {
+        @apply flex-1 flex flex-col;
+    }
+
+    .btn-swipe {
+        @apply relative px-8 py-1 text-xl font-semibold overflow-hidden border border-black
+        text-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+        transition-colors duration-500 ease-in-out
+        hover:text-white
+
+        before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0
+        before:h-full before:w-0 before:bg-black before:transition-all before:duration-500
+        hover:before:left-0 hover:before:w-full hover:before:bg-black
+
+        after:absolute after:left-0 after:top-0 after:h-80 after:w-36
+        after:bg-white after:opacity-20 after:duration-300
+        /*after:-translate-x-32 after:-translate-y-24 after:rotate-45*/
+        /*active:after:translate-x-40 active:after:translate-y-12*/
+        after:translate-x-40 active:after:-translate-x-40
+    }
+
+    .btn-circle {
+        @apply relative flex px-8 py-1 text-xl font-semibold overflow-hidden border border-black
+        text-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] items-center justify-center
+        transition-colors duration-500 ease-in-out
+        hover:text-white
+
+        before:absolute before:h-0 before:w-0 before:rounded-full before:bg-black
+        before:duration-500 before:ease-out
+        hover:before:h-56 hover:before:w-56
+
+        after:absolute after:h-0 after:w-0 after:rounded-full
+        after:bg-white after:opacity-20 after:duration-100
+        active:after:h-36 active:after:w-36
+    }
+
+    .btn-hide {
+        @apply relative flex px-8 py-1 text-xl font-semibold overflow-hidden border border-black
+        text-black bg-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] items-center justify-center
+        transition-colors duration-200 ease-in-out
+        hover:text-white
+
+        before:absolute before:inset-0 before:duration-200
+        before:ease-in-out before:bg-white
+        before:scale-100 hover:before:scale-0
+
+        after:absolute after:inset-0 after:duration-100
+        after:ease-in-out after:bg-white after:opacity-25
+        after:scale-0 active:after:scale-100
+    }
+}
